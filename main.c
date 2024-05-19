@@ -25,10 +25,6 @@ int main(int argc, char *argv[]) {
     } else if (strcmp(parameter, "-w") == 0) {
          
         printf("µ¥´ÊÊý£º%d\n", count);
-    } else {
-         
-    }
-
-    fclose(file);
+    } 
     return 0;
 }
