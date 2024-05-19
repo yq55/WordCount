@@ -1,9 +1,7 @@
-S #include <stdio.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-#define MAX_FILE_NAME 100
-#define MAX_BUFFER_SIZE 1024
+#define MAX_SIZE 1000
 
 int main(int argc, char *argv[]) {
     if (argc != 3) {
@@ -19,12 +17,24 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    char buffer[MAX_BUFFER_SIZE];
+    char text[MAX_SIZE];
     int count = 0;
-    if (strcmp(parameter, "-c") == 0)  
+
+    if (strcmp(parameter, "-c") == 0) {
+        while (fgets(text, MAX_SIZE, file) != NULL) {
+            count += strlen(text);
+        }
+        printf("×Ö·ûÊý£º%d\n", count);
     } else if (strcmp(parameter, "-w") == 0) {
-         
+        while (fscanf(file, "%s", text) == 1) {
+            count++;
+        }
         printf("µ¥´ÊÊý£º%d\n", count);
-    } 
+    } else {
+        printf("Invalid parameter. Please use -c or -w.\n");
+        return 1;
+    }
+
+    fclose(file);
     return 0;
 }
