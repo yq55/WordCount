@@ -34,7 +34,5 @@ int main(int argc, char *argv[]) {
         printf("Invalid parameter. Please use -c or -w.\n");
         return 1;
     }
-
-    fclose(file);
-    return 0;
+ 
 }
