@@ -1,4 +1,4 @@
- #include <stdio.h>
+S #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -21,19 +21,12 @@ int main(int argc, char *argv[]) {
 
     char buffer[MAX_BUFFER_SIZE];
     int count = 0;
-    if (strcmp(parameter, "-c") == 0) {
-        while (fgets(buffer, MAX_BUFFER_SIZE, file) != NULL) {
-            count += strlen(buffer);
-        }
-        printf("×Ö·ûÊý£º%d\n", count);
+    if (strcmp(parameter, "-c") == 0)  
     } else if (strcmp(parameter, "-w") == 0) {
-        while (fscanf(file, "%s", buffer) == 1) {
-            count++;
-        }
+         
         printf("µ¥´ÊÊý£º%d\n", count);
     } else {
-        printf("Invalid parameter. Use -c or -w.\n");
-        return 1;
+         
     }
 
     fclose(file);
